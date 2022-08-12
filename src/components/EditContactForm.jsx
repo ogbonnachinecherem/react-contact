@@ -46,7 +46,7 @@ class EditContactForm extends Component {
 
        <Form.Group className='mb3' controlId='formBasicPhone'>
         <Form.Label>Phone:</Form.Label>
-        <Form.Control type="number" placeholder="Telephone" name="phone"  value={this.state.phone} onChange={this.handleChange}/>
+        <Form.Control type="tel" placeholder="Telephone" name="phone"  value={this.state.phone} onChange={this.handleChange}/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicLocation">

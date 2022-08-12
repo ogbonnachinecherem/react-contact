@@ -33,8 +33,6 @@ class App extends Component {
     }
   }
 
-
-
   addNewContact = ( AllContact) => {
     AllContact.id = Math.random().toString();
     this.setState({
@@ -54,7 +52,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container style={{marginTop: "3rem"}}>
         <Row>
           <Col md={4}>
             <AddContactForm addContact={this.addNewContact} />

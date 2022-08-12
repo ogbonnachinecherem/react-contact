@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { Container,Row,Col,Button } from 'react-bootstrap';
+import {Col,Button } from 'react-bootstrap';
 import{Card,Modal} from 'react-bootstrap';
 import EditContactForm from './EditContactForm';
 
@@ -19,7 +19,7 @@ const ContactA = (props) => {
         <>
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit User</Modal.Title>
+          <Modal.Title>Codetrain Student Edit</Modal.Title>
         </Modal.Header> 
         <Modal.Body>
           <EditContactForm UserContact={props.UserContact} editUser={props.editUser} closeModal={handleClose}/>
@@ -27,10 +27,9 @@ const ContactA = (props) => {
         </Modal.Body>
        
       </Modal>
-          <Container>
-            <Row>
-                <Col md={3} style={{ marginBottom: "1rem",}}>
-                <Card style={{ width: '18rem',}}>
+          
+                <Col md={4} style={{ marginBottom: "1rem",}}>
+                <Card>
       <Card.Body>
         <Card.Title>Name: {props.AllContactData.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Phone: {props.AllContactData.phone}</Card.Subtitle>
@@ -40,9 +39,9 @@ const ContactA = (props) => {
         <Button href="#"  style={{marginLeft: "1rem"}} variant='success'  onClick={handleShow}>Edit</Button>
         <Button href="#"  style={{marginLeft: "1rem"}} variant='danger' onClick={handleDelete}>Delete</Button>
       </Card.Body>
-    </Card></Col>
-            </Row>
-            </Container>  
+    </Card>
+    </Col>
+              
         </>
     );
 }
