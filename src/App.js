@@ -11,24 +11,24 @@ class App extends Component {
     super(props);
     this.state = {
       AllContacts: [
-        {
-          name: "constance",
-          phone: "+233 956 789 099",
-          location: "Accra",
-          id: "1",
-        },
-        {
-          name: "confidence",
-          phone: "+234 956 789 099",
-          location: "Kumasi",
-          id: "2",
-        },
-        {
-          name: "comfort",
-          phone: "+235 956 789 099",
-          location: "Volta",
-          id: "3"
-        },
+        // {
+        //   name: "constance",
+        //   phone: "+233 956 789 099",
+        //   location: "Accra",
+        //   id: "1",
+        // },
+        // {
+        //   name: "confidence",
+        //   phone: "+234 956 789 099",
+        //   location: "Kumasi",
+        //   id: "2",
+        // },
+        // {
+        //   name: "comfort",
+        //   phone: "+235 956 789 099",
+        //   location: "Volta",
+        //   id: "3"
+        // },
       ]
     }
   }
