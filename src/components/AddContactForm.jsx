@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AddContact} from '../actions/Actions';
 import { connect, useSelector } from 'react-redux';
+import { v4 as uuid } from "uuid";
 
 class AddContactForm extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class AddContactForm extends Component {
             name: "",
             phone: "",
             location: "",
+            id: "",
         }
     };
     handleChange = (e) => {
@@ -27,6 +29,7 @@ class AddContactForm extends Component {
             name: "",
             phone: "",
             location: "",
+            id:uuid(),
         })
       //  console.log("form submitted",this.state); 
     }

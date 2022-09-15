@@ -14,9 +14,9 @@ const {AllContacts} = useSelector((state) => {
         <>
             <Container>
                 <Row>
-                            {AllContacts.map((item) => {
+                            {AllContacts.map((item, index) => {
                                 return <ContactA AllContactData={item}
-                                            key={item.id}
+                                            key={index}
                                             UserContact={item}
                                             deleteUser={props.deleteUser}
                                             editUser={props.editUser} />
