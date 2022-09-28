@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 
 
 const AllContact = (props) => {
-
 const {AllContacts} = useSelector((state) => {
     return state })
+    
 
     return (
 

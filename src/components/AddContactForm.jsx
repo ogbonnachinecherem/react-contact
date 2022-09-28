@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AddContact} from '../actions/Actions';
-import { connect, useSelector } from 'react-redux';
+import { connect,  } from 'react-redux';
 import { v4 as uuid } from "uuid";
+import {db} from "../firebase/Config";
+import { doc, setDoc } from "firebase/firestore"; 
 
 class AddContactForm extends Component {
     constructor(props) {
-        super(props);
+        super();
         this.state={
             name: "",
             phone: "",
             location: "",
-            id: "",
         }
     };
     handleChange = (e) => {
@@ -22,15 +23,38 @@ class AddContactForm extends Component {
         [e.target.name]: e.target.value,
       });
     };
-    handleSubmit = (e) => {
+    handleSubmit = async(e) => {
         e.preventDefault();
-        this.props.AddContact(this.state)
+
+        let newContact = {
+          name: this.state.name,
+          phone: this.state.phone,
+          location: this.state.location,
+          id: uuid()
+        }
+
+        try {
+          await setDoc(doc(db, "codetrainContacts", newContact.id),this.state)
+        } catch(e) {
+          console.log(e);
+        }
+
         this.setState({
-            name: "",
-            phone: "",
-            location: "",
-            id:uuid(),
+          name: "",
+          phone: "",
+          location: ""
         })
+      //   try {await setDoc(doc(db, "codetrainContacts", this.state.id),this.state);
+      //   // );
+      //   // this.props.AddContact(this.state)
+      //   this.setState({
+      //       name: "",
+      //       phone: "",
+      //       location: "",
+      //       id:uuid(),
+      //   })
+      // }
+      // catch(e) {console.log(e)};
       //  console.log("form submitted",this.state); 
     }
     render() {
