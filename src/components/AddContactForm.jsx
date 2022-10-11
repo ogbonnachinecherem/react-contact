@@ -5,7 +5,7 @@ import { AddContact} from '../actions/Actions';
 import { connect,  } from 'react-redux';
 import { v4 as uuid } from "uuid";
 import {db} from "../firebase/Config";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, serverTimestamp} from "firebase/firestore"; 
 
 class AddContactForm extends Component {
     constructor(props) {
@@ -30,20 +30,22 @@ class AddContactForm extends Component {
           name: this.state.name,
           phone: this.state.phone,
           location: this.state.location,
-          id: uuid()
+          id: uuid(),
+          timestamp: serverTimestamp()
         }
 
         try {
-          await setDoc(doc(db, "codetrainContacts", newContact.id),this.state)
+          await setDoc(doc(db, "newContacts", newContact.id),this.state)
+          this.setState({
+            name: "",
+            phone: "",
+            location: ""
+          })
         } catch(e) {
           console.log(e);
         }
 
-        this.setState({
-          name: "",
-          phone: "",
-          location: ""
-        })
+       
       //   try {await setDoc(doc(db, "codetrainContacts", this.state.id),this.state);
       //   // );
       //   // this.props.AddContact(this.state)
